@@ -5,4 +5,4 @@
 //  Created by Conqueror Mikrokosmos on 18/07/2023.
 //
 
-#include "QuickSort.hpp"
+#include "SortingAlgorithms.hpp"
