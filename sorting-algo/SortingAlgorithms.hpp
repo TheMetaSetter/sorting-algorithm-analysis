@@ -9,7 +9,6 @@
 #define SortingAlgorithms_hpp
 
 #include <iostream>
-#include "Lab 3/DataGenerator.cpp"
 
 using namespace std;
 

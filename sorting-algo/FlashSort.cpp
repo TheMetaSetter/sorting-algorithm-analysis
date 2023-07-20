@@ -7,6 +7,7 @@
 
 //https://github.com/HaiDuc0147/sortingAlgorithm/blob/main/reportSort/Sort.cpp
 #include "SortingAlgorithms.hpp"
+#include "../helper/DataGenerator.cpp"
 
 void FlashSort(int a[], int n) {
 	int minVal = a[0];
