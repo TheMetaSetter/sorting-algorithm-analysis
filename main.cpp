@@ -5,7 +5,17 @@
 #include "helper/HandlingArrays.cpp"
 
 int main() {
-    
+
+    //Test FlashSort
+    int a[10];
+    GenerateData(a, 10, 0);
+
+    FlashSort(a, 10);
+
+    // int countCompare = 0;
+    // FlashSortCountComp(a, 10, countCompare);
+
+    PrintArray(a, 10);
     
     return 0;
 }
