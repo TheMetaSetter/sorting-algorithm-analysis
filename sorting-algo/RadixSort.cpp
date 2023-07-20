@@ -7,7 +7,8 @@
 
 #include "SortingAlgorithms.hpp"
 
-void RadixSort(int a[], int n) {
+void RadixSort(int a[], int n)
+{
 	int *b = new int[n];
 	int m = a[0], exp = 1;
 
@@ -17,7 +18,7 @@ void RadixSort(int a[], int n) {
 
 	while (m / exp > 0)
 	{
-		int bucket[10] = { 0 };
+		int bucket[10] = {0};
 		for (int i = 0; i < n; i++)
 			bucket[a[i] / exp % 10]++;
 		for (int i = 1; i < 10; i++)
@@ -31,7 +32,8 @@ void RadixSort(int a[], int n) {
 	delete[] b;
 }
 
-void RadixSortCountComp(int a[], int n, int &countCompare) {
+void RadixSortCountComp(int a[], int n, int &countCompare)
+{
 	int *b = new int[n];
 	int m = a[0], exp = 1;
 
@@ -41,7 +43,7 @@ void RadixSortCountComp(int a[], int n, int &countCompare) {
 
 	while (++countCompare && m / exp > 0)
 	{
-		int bucket[10] = { 0 };
+		int bucket[10] = {0};
 		for (int i = 0; ++countCompare && i < n; i++)
 			bucket[a[i] / exp % 10]++;
 		for (int i = 1; ++countCompare && i < 10; i++)

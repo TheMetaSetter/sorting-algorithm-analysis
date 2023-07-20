@@ -5,7 +5,7 @@
 //  Created by Conqueror Mikrokosmos on 18/07/2023.
 //
 
-//https://github.com/HaiDuc0147/sortingAlgorithm/blob/main/reportSort/Sort.cpp
+// https://github.com/HaiDuc0147/sortingAlgorithm/blob/main/reportSort/Sort.cpp
 #include "SortingAlgorithms.hpp"
 
 void CountingSort(int a[], int n)
@@ -38,7 +38,7 @@ void CountingSort(int a[], int n)
 	delete[] temp;
 }
 
-void countingSortCountComp(int a[], int n, int &countCompare)
+void CountingSortCountComp(int a[], int n, int &countCompare)
 {
 	int max = a[0];
 	for (int i = 1; ++countCompare && i < n; i++)
@@ -64,7 +64,7 @@ void countingSortCountComp(int a[], int n, int &countCompare)
 
 	for (int i = 0; ++countCompare && i < n; i++)
 		a[i] = temp[i];
-	
+
 	delete[] count;
 	delete[] temp;
 }

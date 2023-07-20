@@ -1,5 +1,6 @@
 void GenerateData(int a[], int n, int dataType);
-void PrintArray(int arr[], int n);
+void InputArrayFromTxtFile(int a[], int n, char* filename);
+void PrintArray(int a[], int n);
 
 template <class T>
 void HoanVi(T &a, T &b)

@@ -1,5 +1,10 @@
 project(SortingAlgorithm)
 
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/externals/sanitizers-cmake/cmake" ${CMAKE_MODULE_PATH})
+set(SANITIZE_ADDRESS TRUE)
+set(CMAKE_CXX_STANDARD 17)
+find_package(Sanitizers)
+
 add_executable(
     SortingAlgorithm
 
@@ -20,3 +25,5 @@ add_executable(
     helper/DataGenerator.cpp
     helper/HandlingArrays.cpp
 )
+
+add_sanitizers(SortingAlgorithm)
