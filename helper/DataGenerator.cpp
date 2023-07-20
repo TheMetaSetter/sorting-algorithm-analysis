@@ -4,13 +4,7 @@
 #include <time.h>
 using namespace std;
 
-template <class T>
-void HoanVi(T &a, T &b)
-{
-	T x = a;
-	a = b;
-	b = x;
-}
+#include "Helper.hpp"
 
 //-------------------------------------------------
 
