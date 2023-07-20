@@ -16,7 +16,7 @@ void InsertionSort(int a[], int n) {
         int curVal = a[i];
         //Loop backward until we found the element that smaller than the curVal
         //Each time there's an element larger than the curVal, we move that element forward 1 position in the array.
-        while (position >= 0 && curVal < a[position - 1]) {
+        while (position > 0 && curVal < a[position - 1]) {
             a[position] = a[position - 1];
             position--;
         }
