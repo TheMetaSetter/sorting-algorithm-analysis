@@ -83,8 +83,14 @@ int main(int argc, const char *argv[])
                     int *a;
                     InputArrayFromTxtFile(a, size, argv[3]);
 
+                    //NEED TO FIX
+                    ///--------------------
+                    //Test input data
+                    PrintArray(a, size);
+
                     // Print size of input data
                     cout << "Input size: " << size << endl;
+                    ///--------------------
 
                     // Mesure running time
                     int runningTime = MeasureRunningTime(algo->second, a, size);
@@ -139,7 +145,6 @@ int main(int argc, const char *argv[])
         {
             if (auto algo = algorithms.find(algoName); algo != algorithms.end())
             {
-
             }
             else
             {

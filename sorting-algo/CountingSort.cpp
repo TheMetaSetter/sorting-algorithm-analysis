@@ -8,7 +8,7 @@
 // https://github.com/HaiDuc0147/sortingAlgorithm/blob/main/reportSort/Sort.cpp
 #include "SortingAlgorithms.hpp"
 
-// Checked
+//Checked
 void CountingSort(int a[], int n)
 {
 	int max = a[0];

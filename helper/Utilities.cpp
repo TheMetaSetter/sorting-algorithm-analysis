@@ -22,6 +22,7 @@ void InputArrayFromTxtFile(int a[], int &n, const char *filename)
 {
     std::ifstream fin(filename);
     fin >> n;
+
     a = new int[n];
     for (int i = 0; i < n; i++)
     {
@@ -33,7 +34,9 @@ void PrintArray(int a[], int n)
 {
     for (int i = 0; i < n; i++)
     {
+        //NEED TO FIX
         std::cout << a[i] << " ";
+        //----------------
     }
     std::cout << std::endl;
 }
