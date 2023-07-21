@@ -101,12 +101,12 @@ void MergeWithCount(int arr[], int left, int mid, int right, int &countCompare) 
 }
 
 // Hàm MergeSort chính với tham số tham chiếu countCompare
-void MergeSortWithCount(int arr[], int left, int right, int &countCompare) {
+void MergeSortCountComp(int arr[], int left, int right, int &countCompare) {
     if (left >= right)
         return;
 
     int mid = left + (right - left) / 2;
-    MergeSortWithCount(arr, left, mid, countCompare);
-    MergeSortWithCount(arr, mid + 1, right, countCompare);
+    MergeSortCountComp(arr, left, mid, countCompare);
+    MergeSortCountComp(arr, mid + 1, right, countCompare);
     MergeWithCount(arr, left, mid, right, countCompare);
 }
