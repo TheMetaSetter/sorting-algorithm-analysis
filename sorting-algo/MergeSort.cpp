@@ -54,7 +54,7 @@ void MergeSort(int arr[], int l, int r)
 }
 
 // Hàm Merge giúp trộn hai mảng đã sắp xếp thành một mảng mới đã sắp xếp và cập nhật số lần so sánh.
-void MergeWithCount(int arr[], int left, int mid, int right, int &countCompare) {
+void MergeCount(int arr[], int left, int mid, int right, int &countCompare) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
@@ -108,5 +108,5 @@ void MergeSortCountComp(int arr[], int left, int right, int &countCompare) {
     int mid = left + (right - left) / 2;
     MergeSortCountComp(arr, left, mid, countCompare);
     MergeSortCountComp(arr, mid + 1, right, countCompare);
-    MergeWithCount(arr, left, mid, right, countCompare);
+    MergeCount(arr, left, mid, right, countCompare);
 }
