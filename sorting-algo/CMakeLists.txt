@@ -1,0 +1,14 @@
+add_library(
+    func
+    BubbleSort.cpp
+    CountingSort.cpp
+    FlashSort.cpp
+    HeapSort.cpp
+    InsertionSort.cpp
+    MergeSort.cpp
+    QuickSort.cpp
+    RadixSort.cpp
+    SelectionSort.cpp
+    ShakerSort.cpp
+    ShellSort.cpp
+)

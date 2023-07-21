@@ -1,8 +1,10 @@
 // https://github.com/HaiDuc0147/sortingAlgorithm/blob/main/reportSort/Sort.cpp
 
+// Libraries initialized in other places
 #include "sorting-algo/SortingAlgorithms.hpp"
 #include "helper/Helper.hpp"
-#include <chrono>
+
+// Built-in libraries used in this source
 #include <iostream>
 #include <functional>
 #include <unordered_map>
@@ -10,7 +12,7 @@
 #include <fstream>
 #include <cstring>
 
-// Library to measure running time of a function
+// To use steady_clock
 using namespace std::chrono;
 
 std::unordered_map<std::string, std::function<void(int *, int)>>
@@ -46,8 +48,7 @@ std::unordered_map<std::string, int>
         {"-rand", 0},
         {"sorted", 1},
         {"rev", 2},
-        {"-nsorted", 3}
-};
+        {"-nsorted", 3}};
 
 int main(int argc, const char *argv[])
 {
@@ -85,47 +86,47 @@ int main(int argc, const char *argv[])
                     cout << "Input size: " << size << endl;
 
                     // Mesure running time
-                    auto start = steady_clock::now();
-                    algo->second(a, size);
-                    auto end = steady_clock::now();
-                    int runningTime = duration_cast<microseconds>(end - start).count(); // in microseconds (μs)
+                    int runningTime = MeasureRunningTime(algo->second, a, size);
 
                     // Count comparison
                     int countCompare = 0;
                     algorithmsCount[algoName](a, size, countCompare);
 
                     // Print result
-                    bool printRunTime = false;
-                    bool printCountCompare = false;
-                    printRunTime = strcmp(argv[4], "-time") ? true : false;
-                    printCountCompare = strcmp(argv[4], "-comp") ? true : false;
-                    if (strcmp(argv[4], "-both"))
-                    {
-                        printRunTime = true;
-                        printCountCompare = true;
-                    }
+                    PrintResult(argv[4], runningTime, countCompare);
 
-                    if (printRunTime)
-                    {
-                        cout << "Running time (if required): " << runningTime << " μs\n";
-                    }
-                    if (printCountCompare)
-                    {
-                        cout << "Comparisons (if required): " << countCompare << " comparisons\n";
-                    }
+                    // Delete a
+                    delete[] a;
                 }
                 // Command 2
                 // If the argv[3] is not char, then it is integer.
                 else
                 {
+                    // We have convert argv[3] to integer at the start of this if-else
                     int size = checkChar;
 
-                    //Print input size
-                    cout << "Input size: " << argv[3] << endl;
+                    // Print input size
+                    cout << "Input size: " << size << endl;
 
-                    for (auto order: dataOrder) {
-                        
-                    } 
+                    for (auto order : dataOrder)
+                    {
+                        // Get the order index
+                        int orderIdx = order.second;
+
+                        // Generate data
+                        int *a = new int[size];
+                        GenerateData(a, size, orderIdx);
+
+                        // Measure running time
+                        int runningTime = MeasureRunningTime(algo->second, a, size);
+
+                        // Count comparison
+                        int countCompare = 0;
+                        algorithmsCount[algoName](a, size, countCompare);
+
+                        // Print result
+                        PrintResult(argv[4], runningTime, countCompare);
+                    }
                 }
             }
             else

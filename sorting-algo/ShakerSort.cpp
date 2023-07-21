@@ -7,18 +7,22 @@
 
 #include "SortingAlgorithms.hpp"
 // ShakerSort function
-void ShakerSort(int arr[], int n) {
+void ShakerSort(int arr[], int n)
+{
     bool swapped = true;
     int start = 0;
     int end = n - 1;
 
-    while (swapped) {
+    while (swapped)
+    {
         // reset the swapped flag on entering the loop, because it might be true from a previous iteration
         swapped = false;
 
         // loop from left to right same as the bubble sort
-        for (int i = start; i < end; ++i) {
-            if (arr[i] > arr[i + 1]) {
+        for (int i = start; i < end; ++i)
+        {
+            if (arr[i] > arr[i + 1])
+            {
                 swap(arr[i], arr[i + 1]);
                 swapped = true;
             }
@@ -35,8 +39,10 @@ void ShakerSort(int arr[], int n) {
         --end;
 
         // from right to left, doing the same comparison as in the previous stage
-        for (int i = end - 1; i >= start; --i) {
-            if (arr[i] > arr[i + 1]) {
+        for (int i = end - 1; i >= start; --i)
+        {
+            if (arr[i] > arr[i + 1])
+            {
                 swap(arr[i], arr[i + 1]);
                 swapped = true;
             }
@@ -48,17 +54,21 @@ void ShakerSort(int arr[], int n) {
 }
 
 // ShakerSort function with comparison count
-void ShakerSortCount(int arr[], int n, int &countCompare) {
+void ShakerSortCount(int arr[], int n, int &countCompare)
+{
     bool swapped = true;
     int start = 0;
     int end = n - 1;
 
-    while (swapped) {
+    while (swapped)
+    {
         swapped = false;
 
-        for (int i = start; i < end; ++i) {
-            countCompare++;  // Increment countCompare
-            if (arr[i] > arr[i + 1]) {
+        for (int i = start; i < end; ++i)
+        {
+            countCompare++; // Increment countCompare
+            if (arr[i] > arr[i + 1])
+            {
                 swap(arr[i], arr[i + 1]);
                 swapped = true;
             }
@@ -70,9 +80,11 @@ void ShakerSortCount(int arr[], int n, int &countCompare) {
         swapped = false;
         --end;
 
-        for (int i = end - 1; i >= start; --i) {
-            countCompare++;  // Increment countCompare
-            if (arr[i] > arr[i + 1]) {
+        for (int i = end - 1; i >= start; --i)
+        {
+            countCompare++; // Increment countCompare
+            if (arr[i] > arr[i + 1])
+            {
                 swap(arr[i], arr[i + 1]);
                 swapped = true;
             }
@@ -81,5 +93,3 @@ void ShakerSortCount(int arr[], int n, int &countCompare) {
         ++start;
     }
 }
-
-

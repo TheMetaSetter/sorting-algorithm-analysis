@@ -8,9 +8,9 @@
 #ifndef SortingAlgorithms_hpp
 #define SortingAlgorithms_hpp
 
-#define DECLARE_ALGO(n) \
-    void n (int a[], int n); \
-    void n ## CountComp(int a[], int n, int &count);
+#define DECLARE_ALGO(n)     \
+    void n(int a[], int n); \
+    void n##CountComp(int a[], int n, int &count);
 
 #include <iostream>
 
