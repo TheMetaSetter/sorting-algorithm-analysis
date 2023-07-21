@@ -34,13 +34,34 @@ void QuickSort(int arr[], int low, int high)
     }
 }
 
-void QuickSortCount(int arr[], int n, int &countCompare)
-{
-    countCompare = 0; // Reset the comparison counter
-    for (int i = 0; i < n - 1; ++i)
-        for (int j = i + 1; j < n; ++j)
-            if (arr[i] > arr[j])
-                ++countCompare;
 
-    QuickSort(arr, 0, n - 1);
+
+// Hàm Partition giúp sắp xếp mảng và trả về chỉ mục pivot, đồng thời cập nhật số lần so sánh.
+int PartitionWithCount(int arr[], int low, int high, int &countCompare) {
+    int pivot = arr[high];
+    int i = low - 1;
+
+    for (int j = low; j <= high - 1; j++) {
+        // Cộng thêm 1 lần so sánh khi tiến hành so sánh các phần tử.
+        countCompare++;
+
+        if (arr[j] < pivot) {
+            i++;
+            Swap(arr[i], arr[j]);
+        }
+    }
+
+    Swap(arr[i + 1], arr[high]);
+    return i + 1;
 }
+
+// Hàm QuickSort chính với tham số tham chiếu countCompare
+void QuickSortCountComp(int arr[], int low, int high, int &countCompare) {
+    if (low < high) {
+        int pivot = PartitionWithCount(arr, low, high, countCompare);
+
+        QuickSortCountComp(arr, low, pivot - 1, countCompare);
+        QuickSortCountComp(arr, pivot + 1, high, countCompare);
+    }
+}
+
