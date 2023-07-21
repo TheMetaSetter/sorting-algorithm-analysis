@@ -6,7 +6,9 @@
 //
 
 #include "SortingAlgorithms.hpp"
-// ShakerSort function
+
+// Checked
+//  ShakerSort function
 void ShakerSort(int arr[], int n)
 {
     bool swapped = true;
@@ -54,36 +56,34 @@ void ShakerSort(int arr[], int n)
 }
 
 // ShakerSort function with comparison count
-void ShakerSortCount(int arr[], int n, int &countCompare)
+void ShakerSortCountComp(int arr[], int n, int &countCompare)
 {
     bool swapped = true;
     int start = 0;
     int end = n - 1;
 
-    while (swapped)
+    while (++countCompare && swapped)
     {
         swapped = false;
 
-        for (int i = start; i < end; ++i)
+        for (int i = start; ++countCompare && i < end; ++i)
         {
-            countCompare++; // Increment countCompare
-            if (arr[i] > arr[i + 1])
+            if (++countCompare && arr[i] > arr[i + 1])
             {
                 swap(arr[i], arr[i + 1]);
                 swapped = true;
             }
         }
 
-        if (!swapped)
+        if (++countCompare && !swapped)
             break;
 
         swapped = false;
         --end;
 
-        for (int i = end - 1; i >= start; --i)
+        for (int i = end - 1; ++countCompare && i >= start; --i)
         {
-            countCompare++; // Increment countCompare
-            if (arr[i] > arr[i + 1])
+            if (++countCompare && arr[i] > arr[i + 1])
             {
                 swap(arr[i], arr[i + 1]);
                 swapped = true;

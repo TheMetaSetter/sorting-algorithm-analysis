@@ -9,6 +9,7 @@
 #include "SortingAlgorithms.hpp"
 #include "../helper/Helper.hpp"
 
+// Checked
 void FlashSort(int a[], int n)
 {
 	int minVal = a[0];

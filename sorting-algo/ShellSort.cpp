@@ -7,6 +7,7 @@
 
 #include "SortingAlgorithms.hpp"
 
+// Checked
 void ShellSort(int a[], int n)
 {
     for (int interval = n / 2; interval >= 1; interval /= 2)

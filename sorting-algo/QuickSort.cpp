@@ -7,40 +7,86 @@
 
 #include "SortingAlgorithms.hpp"
 
-int Partition(int arr[], int low, int high)
+// Checked
+//  Quick Sort
+int Partition(int a[], int left, int right)
 {
-    int pivot = arr[high];
-    int i = (low - 1);
+    int pivot = a[left];
+    int i = left;
+    int j = right + 1;
 
-    for (int j = low; j <= high - 1; j++)
+    do
     {
-        if (arr[j] < pivot)
+        do
+            i++;
+        while (i <= right && a[i] < pivot);
+        do
+            j--;
+        while (j >= left && a[j] > pivot);
+
+        swap(a[i], a[j]);
+    } while (i < j);
+
+    swap(a[i], a[j]);
+
+    swap(a[left], a[j]);
+
+    return j;
+}
+
+void QuickSortCore(int a[], int left, int right)
+{
+    if (left < right)
+    {
+        int pivotIdx = Partition(a, left, right); // Divide the array into 3 parts: left part, a pivot and right part
+        QuickSortCore(a, left, pivotIdx - 1);     // Sort left part
+        QuickSortCore(a, pivotIdx + 1, right);    // Sort right part
+    }
+}
+
+void QuickSort(int a[], int n)
+{
+    QuickSortCore(a, 0, n - 1);
+}
+
+int PartitionCountComp(int a[], int left, int right, int &countCompare)
+{
+    int pivot = a[left];
+    int i = left;
+    int j = right + 1;
+
+    do
+    {
+        do
         {
             i++;
-            std::swap(arr[i], arr[j]);
-        }
-    }
-    std::swap(arr[i + 1], arr[high]);
-    return (i + 1);
+        } while (++countCompare && i <= right && ++countCompare && a[i] < pivot);
+        do
+        {
+            j--;
+        } while (++countCompare && j >= left && ++countCompare && a[j] > pivot);
+
+        swap(a[i], a[j]);
+    } while (++countCompare && i < j);
+
+    swap(a[i], a[j]);
+
+    swap(a[left], a[j]);
+
+    return j;
 }
 
-void QuickSort(int arr[], int low, int high)
+void QuickSortCountCompCore(int a[], int left, int right, int &countCompare)
 {
-    if (low < high)
+    if (++countCompare && left < right)
     {
-        int pi = Partition(arr, low, high);
-        QuickSort(arr, low, pi - 1);
-        QuickSort(arr, pi + 1, high);
+        int pivotIdx = PartitionCountComp(a, left, right, countCompare); // Divide the array into 3 parts: left part, a pivot and right part
+        QuickSortCountCompCore(a, left, pivotIdx - 1, countCompare);
+        QuickSortCountCompCore(a, pivotIdx + 1, right, countCompare);
     }
 }
 
-void QuickSortCount(int arr[], int n, int &countCompare)
+void QuickSortCountComp(int a[], int n, int &countCompare)
 {
-    countCompare = 0; // Reset the comparison counter
-    for (int i = 0; i < n - 1; ++i)
-        for (int j = i + 1; j < n; ++j)
-            if (arr[i] > arr[j])
-                ++countCompare;
-
-    QuickSort(arr, 0, n - 1);
+    QuickSortCountCompCore(a, 0, n - 1, countCompare);
 }

@@ -7,7 +7,8 @@
 
 #include "SortingAlgorithms.hpp"
 
-// https://youtu.be/IWT-Uoz_Sb8
+// Checked
+//  https://youtu.be/IWT-Uoz_Sb8
 void InsertionSort(int a[], int n)
 {
     // Loop start from the second element of the array
@@ -72,6 +73,39 @@ void BinaryInsertionSort(int a[], int n)
 
         // Shift elements forward
         for (int j = i - 1; j >= left; j--)
+        {
+            a[j + 1] = a[j];
+        }
+
+        // Finally, we assign curVal to the last position found.
+        a[left] = curVal;
+    }
+}
+
+void BinaryInsertionSort(int a[], int n, int &countCompare)
+{
+    for (int i = 1; ++countCompare && i < n; i++)
+    {
+        int curVal = a[i];
+
+        // Binary search
+        int left = 1;
+        int right = i - 1;
+        while (++countCompare && left <= right)
+        {
+            int mid = (left + right) >> 1;
+            if (++countCompare && curVal < a[mid])
+            {
+                right = mid - 1;
+            }
+            else
+            {
+                left = mid + 1;
+            }
+        }
+
+        // Shift elements forward
+        for (int j = i - 1; ++countCompare && j >= left; j--)
         {
             a[j + 1] = a[j];
         }
