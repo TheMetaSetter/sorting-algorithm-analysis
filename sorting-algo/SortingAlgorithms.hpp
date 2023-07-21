@@ -10,7 +10,7 @@
 
 #define DECLARE_ALGO(n)     \
     void n(int a[], int n); \
-    void n##CountComp(int a[], int n, int &count);
+    void n##CountComp(int a[], int n, int &countCompare);
 
 #include <iostream>
 

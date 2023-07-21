@@ -13,7 +13,8 @@ void Merge(int arr[], int l, int m, int r)
     int n1 = m - l + 1;
     int n2 = r - m;
 
-    int L[n1], R[n2];
+    int *L = new int[n1];
+    int *R = new int[n2];
 
     for (i = 0; i < n1; i++)
         L[i] = arr[l + i];
@@ -36,6 +37,9 @@ void Merge(int arr[], int l, int m, int r)
 
     while (j < n2)
         arr[k++] = R[j++];
+
+    delete[] L;
+    delete[] R;
 }
 
 void MergeSort(int arr[], int l, int r)

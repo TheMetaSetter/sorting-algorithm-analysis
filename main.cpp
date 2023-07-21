@@ -46,8 +46,8 @@ std::unordered_map<std::string, std::function<void(int *, int, int &)>>
 std::unordered_map<std::string, int>
     dataOrder = {
         {"-rand", 0},
-        {"sorted", 1},
-        {"rev", 2},
+        {"-sorted", 1},
+        {"-rev", 2},
         {"-nsorted", 3}};
 
 int main(int argc, const char *argv[])
@@ -138,6 +138,7 @@ int main(int argc, const char *argv[])
         {
             if (auto algo = algorithms.find(algoName); algo != algorithms.end())
             {
+                
             }
             else
             {
