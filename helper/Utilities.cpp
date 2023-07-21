@@ -18,7 +18,8 @@
 // To use steady_clock
 using namespace std::chrono;
 
-void InputArrayFromTxtFile(int a[], int &n, const char *filename)
+//This function need to use *&a to change the value of pointer a. This is called "reference to pointer".
+void InputArrayFromTxtFile(int *&a, int &n, const char *filename)
 {
     std::ifstream fin(filename);
     fin >> n;
@@ -46,9 +47,9 @@ void PrintResult(const char *outPara, int runningTime, int countCompare)
 {
     bool printRunTime = false;
     bool printCountCompare = false;
-    printRunTime = strcmp(outPara, "-time") ? true : false;
-    printCountCompare = strcmp(outPara, "-comp") ? true : false;
-    if (strcmp(outPara, "-both"))
+    printRunTime = strcmp(outPara, "-time") == 0 ? true : false;
+    printCountCompare = strcmp(outPara, "-comp") == 0 ? true : false;
+    if (strcmp(outPara, "-both") == 0)
     {
         printRunTime = true;
         printCountCompare = true;
@@ -58,6 +59,7 @@ void PrintResult(const char *outPara, int runningTime, int countCompare)
     {
         std::cout << "Running time (if required): " << runningTime << " μs\n";
     }
+
     if (printCountCompare)
     {
         std::cout << "Comparisons (if required): " << countCompare << " comparisons\n";

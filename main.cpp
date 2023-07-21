@@ -80,13 +80,8 @@ int main(int argc, const char *argv[])
 
                     // Input data
                     int size;
-                    int *a;
+                    int* a;
                     InputArrayFromTxtFile(a, size, argv[3]);
-
-                    //NEED TO FIX
-                    ///--------------------
-                    //Test input data
-                    PrintArray(a, size);
 
                     // Print size of input data
                     cout << "Input size: " << size << endl;
@@ -123,6 +118,9 @@ int main(int argc, const char *argv[])
                         // Generate data
                         int *a = new int[size];
                         GenerateData(a, size, orderIdx);
+
+                        //Print input-data
+                        PrintArray(a, size);
 
                         // Measure running time
                         int runningTime = MeasureRunningTime(algo->second, a, size);
