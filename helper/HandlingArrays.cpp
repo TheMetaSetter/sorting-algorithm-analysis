@@ -8,10 +8,11 @@
 #include <iostream>
 #include "Helper.hpp"
 #include <fstream>
+#include <string_view>
 
 using namespace std;
 
-void InputArrayFromTxtFile(int a[], int n, const char* filename)
+void InputArrayFromTxtFile(int a[], int &n, const char* filename)
 {
     ifstream fin(filename);
     fin >> n;

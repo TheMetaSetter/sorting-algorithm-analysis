@@ -1,5 +1,5 @@
 void GenerateData(int a[], int n, int dataType);
-void InputArrayFromTxtFile(int a[], int n, char* filename);
+void InputArrayFromTxtFile(int a[], int &n, const char* filename);
 void PrintArray(int a[], int n);
 
 template <class T>

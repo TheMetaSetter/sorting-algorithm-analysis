@@ -16,10 +16,16 @@
 
 using namespace std;
 
-DECLARE_ALGO(InsertionSort)
-DECLARE_ALGO(ShellSort)
+DECLARE_ALGO(BubbleSort)
 DECLARE_ALGO(CountingSort)
 DECLARE_ALGO(FlashSort)
+DECLARE_ALGO(HeapSort)
+DECLARE_ALGO(InsertionSort)
+DECLARE_ALGO(MergeSort)
+DECLARE_ALGO(QuickSort)
 DECLARE_ALGO(RadixSort)
+DECLARE_ALGO(SelectionSort)
+DECLARE_ALGO(ShakerSort)
+DECLARE_ALGO(ShellSort)
 
 #endif /* SortingAlgorithms_hpp */

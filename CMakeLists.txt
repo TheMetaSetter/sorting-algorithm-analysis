@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.0.0)
 project(SortingAlgorithm)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/externals/sanitizers-cmake/cmake" ${CMAKE_MODULE_PATH})
