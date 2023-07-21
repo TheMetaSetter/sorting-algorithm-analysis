@@ -13,6 +13,7 @@
 #include <fstream>
 #include <string_view>
 #include <chrono>
+#include <cstring>
 
 // To use steady_clock
 using namespace std::chrono;

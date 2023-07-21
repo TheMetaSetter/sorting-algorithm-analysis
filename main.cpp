@@ -11,6 +11,7 @@
 #include <string>
 #include <fstream>
 #include <cstring>
+#include <chrono>
 
 // To use steady_clock
 using namespace std::chrono;
@@ -138,7 +139,7 @@ int main(int argc, const char *argv[])
         {
             if (auto algo = algorithms.find(algoName); algo != algorithms.end())
             {
-                
+
             }
             else
             {
