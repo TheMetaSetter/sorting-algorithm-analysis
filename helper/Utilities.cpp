@@ -19,9 +19,9 @@
 using namespace std::chrono;
 
 // This function need to use *&a to change the value of pointer a. This is called "reference to pointer".
-void InputArrayFromTxtFile(int *&a, int &n, const char *filename)
+void InputArrayFromTxtFile(int *&a, int &n, const char *fileName)
 {
-    std::ifstream fin(filename);
+    std::ifstream fin(fileName);
     fin >> n;
 
     a = new int[n];
@@ -29,6 +29,8 @@ void InputArrayFromTxtFile(int *&a, int &n, const char *filename)
     {
         fin >> a[i];
     }
+
+    fin.close();
 }
 
 void PrintArray(int a[], int n)
@@ -40,6 +42,20 @@ void PrintArray(int a[], int n)
         //----------------
     }
     std::cout << std::endl;
+}
+
+void WriteArrayToTxtFile(int *a, int n, const char *fileName)
+{
+    std::ofstream fout(fileName);
+    
+    fout << n << "\n";
+
+    for (int i = 0; i < n; i++)
+    {
+        fout << a[i] << " ";
+    }
+
+    fout.close();
 }
 
 // Print result

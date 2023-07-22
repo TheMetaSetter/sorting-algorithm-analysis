@@ -57,17 +57,18 @@ std::unordered_map<std::string, int>
 
 int main(int argc, const char *argv[])
 {
+    std::string outFileName = "../output/output.txt";
 
     if (strcmp(argv[1], "-a") == 0)
     {
         // Print title
-        cout << "ALGORITHM MODE" << endl;
+        std::cout << "ALGORITHM MODE" << endl;
 
         // Get the algorithm name
         std::string algoName = argv[2];
 
         // Print algorithm name
-        cout << "Algorithm: " << algoName << endl;
+        std::cout << "Algorithm: " << algoName << endl;
 
         // Algorithm mode
         if (argc == 5)
@@ -80,7 +81,7 @@ int main(int argc, const char *argv[])
                 if (checkChar == 0)
                 {
                     // Print input-data file-name
-                    cout << "Input file: " << argv[3] << endl;
+                    std::cout << "Input file: " << argv[3] << endl;
 
                     // Input data
                     int size;
@@ -88,12 +89,15 @@ int main(int argc, const char *argv[])
                     InputArrayFromTxtFile(a, size, argv[3]);
 
                     // Print size of input data
-                    cout << "Input size: " << size << endl;
-                    
-                    cout << "-------------------------\n";
+                    std::cout << "Input size: " << size << endl;
+
+                    std::cout << "-------------------------\n";
 
                     // Mesure running time
                     int runningTime = MeasureRunningTime(algo->second, a, size);
+
+                    // Write sorted array to txt file
+                    WriteArrayToTxtFile(a, size, outFileName.c_str());
 
                     // Count comparison
                     ull countCompare = 0;
@@ -102,7 +106,7 @@ int main(int argc, const char *argv[])
                     // Print result
                     PrintResult(argv[4], runningTime, countCompare);
 
-                    cout << "\n\n";
+                    std::cout << "\n\n";
 
                     // Delete a
                     delete[] a;
@@ -115,8 +119,8 @@ int main(int argc, const char *argv[])
                     int size = checkChar;
 
                     // Print input size
-                    cout << "Input size: " << size << endl
-                         << endl;
+                    std::cout << "Input size: " << size << endl
+                              << endl;
 
                     for (auto order : dataOrder)
                     {
@@ -130,6 +134,12 @@ int main(int argc, const char *argv[])
                         int *a = new int[size];
                         GenerateData(a, size, orderIdx);
 
+                        // Write input data to text file
+                        std::string textFileName = "../input/input_";
+                        textFileName += to_string(orderIdx + 1);
+                        textFileName += ".txt";
+                        WriteArrayToTxtFile(a, size, textFileName.c_str());
+
                         // Measure running time
                         int runningTime = MeasureRunningTime(algo->second, a, size);
 
@@ -140,13 +150,13 @@ int main(int argc, const char *argv[])
                         // Print result
                         PrintResult(argv[4], runningTime, countCompare);
 
-                        cout << "\n\n";
+                        std::cout << "\n\n";
                     }
                 }
             }
             else
             {
-                cout << "Algorithm not found!\n";
+                std::cout << "Algorithm not found!\n";
             }
         }
         // Command 2
@@ -158,7 +168,7 @@ int main(int argc, const char *argv[])
                 int size = atoi(argv[3]);
 
                 // Print input size
-                cout << "Input size: " << size << endl;
+                std::cout << "Input size: " << size << endl;
 
                 // Get input order
                 std::string order = argv[4];
@@ -173,8 +183,15 @@ int main(int argc, const char *argv[])
                 int *a = new int[size];
                 GenerateData(a, size, orderIdx);
 
+                // Write input data to text file
+                std::string textFileName = "../input/input.txt";
+                WriteArrayToTxtFile(a, size, textFileName.c_str());
+
                 // Measure running time
                 int runningTime = MeasureRunningTime(algo->second, a, size);
+
+                // Write sorted array to txt file
+                WriteArrayToTxtFile(a, size, outFileName.c_str());
 
                 // Count comparison
                 ull countCompare = 0;
@@ -183,32 +200,32 @@ int main(int argc, const char *argv[])
                 // Print result
                 PrintResult(argv[5], runningTime, countCompare);
 
-                cout << "\n\n";
+                std::cout << "\n\n";
 
                 delete[] a;
             }
             else
             {
-                cout << "Algorithm not found!\n";
+                std::cout << "Algorithm not found!\n";
             }
         }
         else
         {
-            cout << "Error: Invalid number of arguments." << endl;
+            std::cout << "Error: Invalid number of arguments." << endl;
         }
     }
     // Comparison mode
     else if (strcmp(argv[1], "-c") == 0)
     {
         // Print title
-        cout << "COMPARISON MODE" << endl;
+        std::cout << "COMPARISON MODE" << endl;
 
         // Get the algorithms name
         std::string algoName1 = argv[2];
         std::string algoName2 = argv[3];
 
         // Print algorithms name
-        cout << "Algorithm: " << algoName1 << " | " << algoName2 << endl;
+        std::cout << "Algorithm: " << algoName1 << " | " << algoName2 << endl;
 
         // Command 4
         if (argc == 5)
@@ -223,12 +240,12 @@ int main(int argc, const char *argv[])
                     InputArrayFromTxtFile(a, size, argv[4]);
 
                     // Print input-data file-name
-                    cout << "Input file: " << argv[4] << endl;
+                    std::cout << "Input file: " << argv[4] << endl;
 
                     // Print input size
-                    cout << "Input size: " << size << endl;
+                    std::cout << "Input size: " << size << endl;
 
-                    cout << "-------------------------\n";
+                    std::cout << "-------------------------\n";
 
                     // Measure running time
                     int runningTime1 = MeasureRunningTime(algo1->second, a, size);
@@ -241,21 +258,21 @@ int main(int argc, const char *argv[])
                     algorithmsCount[algoName2](a, size, countCompare2);
 
                     // Print result
-                    cout << "Running time: " << runningTime1 << " | " << runningTime2 << endl;
-                    cout << "Comparisons: " << countCompare1 << " | " << countCompare2 << endl;
+                    std::cout << "Running time: " << runningTime1 << " | " << runningTime2 << endl;
+                    std::cout << "Comparisons: " << countCompare1 << " | " << countCompare2 << endl;
 
-                    cout << "\n\n";
+                    std::cout << "\n\n";
 
                     delete[] a;
                 }
                 else
                 {
-                    cout << "Algorithm 2 not found.\n";
+                    std::cout << "Algorithm 2 not found.\n";
                 }
             }
             else
             {
-                cout << "Algorithm 1 not found.\n";
+                std::cout << "Algorithm 1 not found.\n";
             }
         }
         // Command 5
@@ -269,7 +286,7 @@ int main(int argc, const char *argv[])
                     int size = atoi(argv[4]);
 
                     // Print input size
-                    cout << "Input size: " << size << endl;
+                    std::cout << "Input size: " << size << endl;
 
                     // Get input order
                     std::string order = argv[5];
@@ -284,7 +301,11 @@ int main(int argc, const char *argv[])
                     int *a = new int[size];
                     GenerateData(a, size, orderIdx);
 
-                    cout << "-------------------------\n";
+                    // Write input data to text file
+                    std::string textFileName = "../input/input.txt";
+                    WriteArrayToTxtFile(a, size, textFileName.c_str());
+
+                    std::cout << "-------------------------\n";
 
                     // Measure running time
                     int runningTime1 = MeasureRunningTime(algo1->second, a, size);
@@ -297,31 +318,31 @@ int main(int argc, const char *argv[])
                     algorithmsCount[algoName2](a, size, countCompare2);
 
                     // Print result
-                    cout << "Running time: " << runningTime1 << " | " << runningTime2 << endl;
-                    cout << "Comparisons: " << countCompare1 << " | " << countCompare2 << endl;
+                    std::cout << "Running time: " << runningTime1 << " | " << runningTime2 << endl;
+                    std::cout << "Comparisons: " << countCompare1 << " | " << countCompare2 << endl;
 
-                    cout << "\n\n";
+                    std::cout << "\n\n";
 
                     delete[] a;
                 }
                 else
                 {
-                    cout << "Algorithm 2 not found.\n";
+                    std::cout << "Algorithm 2 not found.\n";
                 }
             }
             else
             {
-                cout << "Algorithm 1 not found.\n";
+                std::cout << "Algorithm 1 not found.\n";
             }
         }
         else
         {
-            cout << "Error: Invalid number of arguments." << endl;
+            std::cout << "Error: Invalid number of arguments." << endl;
         }
     }
     else
     {
-        cout << "Error: Flag cannot be found." << endl;
+        std::cout << "Error: Flag cannot be found." << endl;
     }
 
     return 0;
