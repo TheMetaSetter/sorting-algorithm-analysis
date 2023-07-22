@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(SortingAlgorithm)
+project(SortingAlgorithms)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/externals/sanitizers-cmake/cmake" ${CMAKE_MODULE_PATH})
 set(SANITIZE_ADDRESS TRUE)
@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(Sanitizers)
 
 add_executable(
-    SortingAlgorithm
+    SortingAlgorithms
 
     main.cpp
 
@@ -27,4 +27,4 @@ add_executable(
     helper/Utilities.cpp
 )
 
-add_sanitizers(SortingAlgorithm)
+add_sanitizers(SortingAlgorithms)
