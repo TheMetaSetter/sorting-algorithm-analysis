@@ -7,7 +7,6 @@
 
 #include "SortingAlgorithms.hpp"
 
-// Checked
 void RadixSort(int a[], int n)
 {
 	int *b = new int[n];
@@ -33,7 +32,7 @@ void RadixSort(int a[], int n)
 	delete[] b;
 }
 
-void RadixSortCountComp(int a[], int n, int &countCompare)
+void RadixSortCountComp(int a[], int n, ull &countCompare)
 {
 	int *b = new int[n];
 	int m = a[0], exp = 1;

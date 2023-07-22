@@ -39,7 +39,7 @@ void CountingSort(int a[], int n)
 	delete[] temp;
 }
 
-void CountingSortCountComp(int a[], int n, int &countCompare)
+void CountingSortCountComp(int a[], int n, ull &countCompare)
 {
 	int max = a[0];
 	for (int i = 1; ++countCompare && i < n; i++)

@@ -7,8 +7,6 @@
 
 #include "SortingAlgorithms.hpp"
 
-// Checked
-//  Quick Sort
 int Partition(int a[], int left, int right)
 {
     int pivot = a[left];
@@ -19,10 +17,10 @@ int Partition(int a[], int left, int right)
     {
         do
             i++;
-        while (i <= right && a[i] < pivot);
+        while (i < right && a[i] < pivot);
         do
             j--;
-        while (j >= left && a[j] > pivot);
+        while (j > left && a[j] > pivot);
 
         swap(a[i], a[j]);
     } while (i < j);
@@ -49,7 +47,7 @@ void QuickSort(int a[], int n)
     QuickSortCore(a, 0, n - 1);
 }
 
-int PartitionCountComp(int a[], int left, int right, int &countCompare)
+int PartitionCountComp(int a[], int left, int right, ull &countCompare)
 {
     int pivot = a[left];
     int i = left;
@@ -60,11 +58,11 @@ int PartitionCountComp(int a[], int left, int right, int &countCompare)
         do
         {
             i++;
-        } while (++countCompare && i <= right && ++countCompare && a[i] < pivot);
+        } while (++countCompare && i < right && ++countCompare && a[i] < pivot);
         do
         {
             j--;
-        } while (++countCompare && j >= left && ++countCompare && a[j] > pivot);
+        } while (++countCompare && j > left && ++countCompare && a[j] > pivot);
 
         swap(a[i], a[j]);
     } while (++countCompare && i < j);
@@ -76,7 +74,7 @@ int PartitionCountComp(int a[], int left, int right, int &countCompare)
     return j;
 }
 
-void QuickSortCountCompCore(int a[], int left, int right, int &countCompare)
+void QuickSortCountCompCore(int a[], int left, int right, ull &countCompare)
 {
     if (++countCompare && left < right)
     {
@@ -86,7 +84,7 @@ void QuickSortCountCompCore(int a[], int left, int right, int &countCompare)
     }
 }
 
-void QuickSortCountComp(int a[], int n, int &countCompare)
+void QuickSortCountComp(int a[], int n, ull &countCompare)
 {
     QuickSortCountCompCore(a, 0, n - 1, countCompare);
 }

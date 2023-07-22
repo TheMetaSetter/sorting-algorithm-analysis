@@ -7,7 +7,6 @@
 
 #include "SortingAlgorithms.hpp"
 
-// Checked
 //  Function to heapify the tree
 void Heapify(int a[], int n, int i)
 {
@@ -52,7 +51,7 @@ void HeapSort(int a[], int n)
 }
 
 // Heapify function with comparison count
-void HeapifyCount(int a[], int n, int i, int &countCompare)
+void HeapifyCount(int a[], int n, int i, ull &countCompare)
 {
     int largest = i;
     int left = 2 * i + 1;
@@ -79,7 +78,7 @@ void HeapifyCount(int a[], int n, int i, int &countCompare)
 }
 
 // HeapSort function with comparison count
-void HeapSortCountComp(int a[], int n, int &countCompare)
+void HeapSortCountComp(int a[], int n, ull &countCompare)
 {
     for (int i = n / 2 - 1; ++countCompare && i >= 0; i--)
         HeapifyCount(a, n, i, countCompare);

@@ -7,7 +7,6 @@
 
 #include "SortingAlgorithms.hpp"
 
-// Checked
 //  https://youtu.be/IWT-Uoz_Sb8
 void InsertionSort(int a[], int n)
 {
@@ -29,7 +28,7 @@ void InsertionSort(int a[], int n)
     }
 }
 
-void InsertionSortCountComp(int a[], int n, int &countCompare)
+void InsertionSortCountComp(int a[], int n, ull &countCompare)
 {
     // Loop start from the second element of the array
     for (int i = 1; ++countCompare && i < n; i++)
@@ -82,7 +81,7 @@ void BinaryInsertionSort(int a[], int n)
     }
 }
 
-void BinaryInsertionSort(int a[], int n, int &countCompare)
+void BinaryInsertionSortCountComp(int a[], int n, ull &countCompare)
 {
     for (int i = 1; ++countCompare && i < n; i++)
     {

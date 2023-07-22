@@ -18,7 +18,7 @@
 // To use steady_clock
 using namespace std::chrono;
 
-//This function need to use *&a to change the value of pointer a. This is called "reference to pointer".
+// This function need to use *&a to change the value of pointer a. This is called "reference to pointer".
 void InputArrayFromTxtFile(int *&a, int &n, const char *filename)
 {
     std::ifstream fin(filename);
@@ -35,7 +35,7 @@ void PrintArray(int a[], int n)
 {
     for (int i = 0; i < n; i++)
     {
-        //NEED TO FIX
+        // NEED TO FIX
         std::cout << a[i] << " ";
         //----------------
     }
@@ -43,7 +43,7 @@ void PrintArray(int a[], int n)
 }
 
 // Print result
-void PrintResult(const char *outPara, int runningTime, int countCompare)
+void PrintResult(const char *outPara, int runningTime, ull countCompare)
 {
     bool printRunTime = false;
     bool printCountCompare = false;
@@ -74,4 +74,29 @@ int MeasureRunningTime(std::function<void(int *, int)> algoFunc, int a[], int si
     int runningTime = duration_cast<microseconds>(end - start).count(); // in microseconds (μs)
 
     return runningTime;
+}
+
+void PrintOrderName(int orderIdx)
+{
+    std::cout << "Input order: ";
+
+    switch (orderIdx)
+    {
+    case 0:
+        std::cout << "Randomize";
+        break;
+    case 1:
+        std::cout << "Sorted";
+        break;
+    case 2:
+        std::cout << "Reversed";
+        break;
+    case 3:
+        std::cout << "Nearly Sorted";
+        break;
+    default:
+        break;
+    }
+
+    std::cout << "\n-------------------------\n";
 }

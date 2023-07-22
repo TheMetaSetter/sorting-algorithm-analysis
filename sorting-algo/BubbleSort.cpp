@@ -7,7 +7,6 @@
 
 #include "SortingAlgorithms.hpp"
 
-// Checked
 void BubbleSort(int arr[], int n)
 {
     /*
@@ -28,7 +27,7 @@ void BubbleSort(int arr[], int n)
     }
 }
 
-void BubbleSortCountComp(int arr[], int n, int &countCompare)
+void BubbleSortCountComp(int arr[], int n, ull &countCompare)
 {
     /*
      After passing through n - 1 elements, those n - 1 elements have already been placed in their correct positions (pushed to the end of the array), and since the array only has n elements, the remaining element is certainly in its correct position.
@@ -80,7 +79,7 @@ void OptimisedBubbleSort(int arr[], int n)
     }
 }
 
-void OptimisedBubbleSortCountComp(int arr[], int n, int &countCompare)
+void OptimisedBubbleSortCountComp(int arr[], int n, ull &countCompare)
 {
     for (int i = 0; ++countCompare && i < n - 1; i++)
     {

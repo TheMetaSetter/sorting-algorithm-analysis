@@ -9,7 +9,6 @@
 #include "SortingAlgorithms.hpp"
 #include "../helper/Helper.hpp"
 
-// Checked
 void FlashSort(int a[], int n)
 {
 	int minVal = a[0];
@@ -72,7 +71,7 @@ void FlashSort(int a[], int n)
 	InsertionSort(a, n);
 }
 
-void FlashSortCountComp(int a[], int n, int &countCompare)
+void FlashSortCountComp(int a[], int n, ull &countCompare)
 {
 	int minVal = a[0];
 	int maxVal = 0;

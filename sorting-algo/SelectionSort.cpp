@@ -7,7 +7,6 @@
 
 #include "SortingAlgorithms.hpp"
 
-// Checked
 //  Selection Sort
 void SelectionSort(int a[], int n)
 {
@@ -32,7 +31,7 @@ void SelectionSort(int a[], int n)
     }
 }
 
-void SelectionSortCountComp(int a[], int n, int &countCompare)
+void SelectionSortCountComp(int a[], int n, ull &countCompare)
 {
     int lastPos = n - 1; // The last position of the array
     // For each position of the array, we find the element that will fit into that position - the element's final position.

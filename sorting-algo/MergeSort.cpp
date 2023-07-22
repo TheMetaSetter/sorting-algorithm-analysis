@@ -7,7 +7,6 @@
 
 #include "SortingAlgorithms.hpp"
 
-// Checked
 //  Merge Sort
 void Merge(int a[], int l, int m, int r)
 {
@@ -61,7 +60,7 @@ void MergeSort(int a[], int n)
 }
 
 // Hàm Merge giúp trộn hai mảng đã sắp xếp thành một mảng mới đã sắp xếp và cập nhật số lần so sánh.
-void MergeCount(int a[], int left, int mid, int right, int &countCompare)
+void MergeCount(int a[], int left, int mid, int right, ull &countCompare)
 {
     int n1 = mid - left + 1;
     int n2 = right - mid;
@@ -113,7 +112,7 @@ void MergeCount(int a[], int left, int mid, int right, int &countCompare)
 }
 
 // Hàm MergeSort chính với tham số tham chiếu countCompare
-void MergeSortCountCompCore(int a[], int left, int right, int &countCompare)
+void MergeSortCountCompCore(int a[], int left, int right, ull &countCompare)
 {
     if (++countCompare && left >= right)
         return;
@@ -124,7 +123,7 @@ void MergeSortCountCompCore(int a[], int left, int right, int &countCompare)
     MergeCount(a, left, mid, right, countCompare);
 }
 
-void MergeSortCountComp(int a[], int n, int &countCompare)
+void MergeSortCountComp(int a[], int n, ull &countCompare)
 {
     MergeSortCountCompCore(a, 0, n - 1, countCompare);
 }
