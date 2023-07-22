@@ -57,7 +57,7 @@ std::unordered_map<std::string, int>
 
 int main(int argc, const char *argv[])
 {
-    std::string outFileName = "../output/output.txt";
+    std::string outFileName = "output.txt";
 
     if (strcmp(argv[1], "-a") == 0)
     {
@@ -135,7 +135,7 @@ int main(int argc, const char *argv[])
                         GenerateData(a, size, orderIdx);
 
                         // Write input data to text file
-                        std::string textFileName = "../input/input_";
+                        std::string textFileName = "input_";
                         textFileName += to_string(orderIdx + 1);
                         textFileName += ".txt";
                         WriteArrayToTxtFile(a, size, textFileName.c_str());
@@ -184,7 +184,7 @@ int main(int argc, const char *argv[])
                 GenerateData(a, size, orderIdx);
 
                 // Write input data to text file
-                std::string textFileName = "../input/input.txt";
+                std::string textFileName = "input.txt";
                 WriteArrayToTxtFile(a, size, textFileName.c_str());
 
                 // Measure running time
@@ -302,7 +302,7 @@ int main(int argc, const char *argv[])
                     GenerateData(a, size, orderIdx);
 
                     // Write input data to text file
-                    std::string textFileName = "../input/input.txt";
+                    std::string textFileName = "input.txt";
                     WriteArrayToTxtFile(a, size, textFileName.c_str());
 
                     std::cout << "-------------------------\n";
