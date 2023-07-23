@@ -9,6 +9,7 @@ void PrintArray(int a[], int n);
 void PrintResult(const char *outPara, int runningTime, ull countCompare);
 int MeasureRunningTime(std::function<void(int *, int)> algoFunc, int a[], int size);
 void PrintOrderName(int orderIdx);
+void WriteExperimentalResultToCsvFile(std::string algoName, int orderIdx, int inputSize , int runningTime, ull countCompare);
 
 template <class T>
 void HoanVi(T &a, T &b)

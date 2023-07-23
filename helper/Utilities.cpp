@@ -116,3 +116,34 @@ void PrintOrderName(int orderIdx)
 
     std::cout << "\n-------------------------\n";
 }
+
+void WriteExperimentalResultToCsvFile(std::string algoName, int orderIdx, int inputSize , int runningTime, ull countCompare)
+{   
+    std::ofstream fout;
+
+    std::string inputSizeStr = std::to_string(inputSize);
+
+    std::string pathToResults = "experimental_results/";
+
+    if (orderIdx == 0) {
+        pathToResults += "randomized_data/";
+    }
+    else if (orderIdx == 1) {
+        pathToResults += "sorted_data/";
+    }
+    else if (orderIdx == 2) {
+        pathToResults += "reverse_sorted_data/";
+    }
+    else if (orderIdx == 3) {
+        pathToResults += "nearly_sorted_data/";
+    }
+
+    pathToResults += inputSizeStr;
+    pathToResults += ".csv";
+
+    fout.open(pathToResults, std::ios::app);
+
+    fout << std::endl << algoName << "," << runningTime << "," << countCompare;
+
+    fout.close();
+}

@@ -9,37 +9,35 @@
 
 int Partition(int a[], int left, int right)
 {
-    int pivot = a[left];
+    int pivot = a[(left + right) / 2];
     int i = left;
-    int j = right + 1;
-
-    do
+    int j = right;
+    int tmp;
+    while (i <= j)
     {
-        do
+        while (a[i] < pivot)
             i++;
-        while (i < right && a[i] < pivot);
-        do
+        while (a[j] > pivot)
             j--;
-        while (j > left && a[j] > pivot);
-
-        swap(a[i], a[j]);
-    } while (i < j);
-
-    swap(a[i], a[j]);
-
-    swap(a[left], a[j]);
-
-    return j;
+        if (i <= j)
+        {
+            tmp = a[i];
+            a[i] = a[j];
+            a[j] = tmp; //
+            i++;
+            j--;
+        }
+    }
+    return i;
 }
 
 void QuickSortCore(int a[], int left, int right)
 {
-    if (left < right)
-    {
-        int pivotIdx = Partition(a, left, right); // Divide the array into 3 parts: left part, a pivot and right part
-        QuickSortCore(a, left, pivotIdx - 1);     // Sort left part
-        QuickSortCore(a, pivotIdx + 1, right);    // Sort right part
-    }
+    int index = Partition(a, left, right);
+    if (left < index - 1)
+        QuickSortCore(a, left, index - 1);
+    if (index < right)
+        QuickSortCore(a, index, right);
 }
 
 void QuickSort(int a[], int n)
@@ -49,39 +47,35 @@ void QuickSort(int a[], int n)
 
 int PartitionCountComp(int a[], int left, int right, ull &countCompare)
 {
-    int pivot = a[left];
+    int pivot = a[(left + right) / 2];
     int i = left;
-    int j = right + 1;
-
-    do
+    int j = right;
+    int tmp;
+    while (++countCompare && i <= j)
     {
-        do
-        {
+        while (++countCompare && a[i] < pivot)
             i++;
-        } while (++countCompare && i < right && ++countCompare && a[i] < pivot);
-        do
-        {
+        while (++countCompare && a[j] > pivot)
             j--;
-        } while (++countCompare && j > left && ++countCompare && a[j] > pivot);
-
-        swap(a[i], a[j]);
-    } while (++countCompare && i < j);
-
-    swap(a[i], a[j]);
-
-    swap(a[left], a[j]);
-
-    return j;
+        if (++countCompare && i <= j)
+        {
+            tmp = a[i];
+            a[i] = a[j];
+            a[j] = tmp;
+            i++;
+            j--;
+        }
+    }
+    return i;
 }
 
 void QuickSortCountCompCore(int a[], int left, int right, ull &countCompare)
 {
-    if (++countCompare && left < right)
-    {
-        int pivotIdx = PartitionCountComp(a, left, right, countCompare); // Divide the array into 3 parts: left part, a pivot and right part
-        QuickSortCountCompCore(a, left, pivotIdx - 1, countCompare);
-        QuickSortCountCompCore(a, pivotIdx + 1, right, countCompare);
-    }
+    int index = PartitionCountComp(a, left, right, countCompare);
+    if (++countCompare && left < index - 1)
+        QuickSortCountCompCore(a, left, index - 1, countCompare);
+    if (++countCompare && index < right)
+        QuickSortCountCompCore(a, index, right, countCompare);
 }
 
 void QuickSortCountComp(int a[], int n, ull &countCompare)
