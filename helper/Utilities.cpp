@@ -82,12 +82,12 @@ void PrintResult(const char *outPara, int runningTime, ull countCompare)
     }
 }
 
-int MeasureRunningTime(std::function<void(int *, int)> algoFunc, int a[], int size)
+ull MeasureRunningTime(std::function<void(int *, int)> algoFunc, int a[], int size)
 {
     auto start = steady_clock::now();
     algoFunc(a, size);
     auto end = steady_clock::now();
-    int runningTime = duration_cast<microseconds>(end - start).count(); // in microseconds (μs)
+    ull runningTime = duration_cast<microseconds>(end - start).count(); // in microseconds (μs)
 
     return runningTime;
 }

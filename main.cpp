@@ -94,7 +94,7 @@ int main(int argc, const char *argv[])
                     std::cout << "-------------------------\n";
 
                     // Mesure running time
-                    int runningTime = MeasureRunningTime(algo->second, a, size);
+                    ull runningTime = MeasureRunningTime(algo->second, a, size);
 
                     // Write sorted array to txt file
                     WriteArrayToTxtFile(a, size, outFileName.c_str());
@@ -141,7 +141,7 @@ int main(int argc, const char *argv[])
                         WriteArrayToTxtFile(a, size, textFileName.c_str());
 
                         // Measure running time
-                        int runningTime = MeasureRunningTime(algo->second, a, size);
+                        ull runningTime = MeasureRunningTime(algo->second, a, size);
 
                         // Count comparison
                         ull countCompare = 0;
@@ -188,7 +188,7 @@ int main(int argc, const char *argv[])
                 WriteArrayToTxtFile(a, size, textFileName.c_str());
 
                 // Measure running time
-                int runningTime = MeasureRunningTime(algo->second, a, size);
+                ull runningTime = MeasureRunningTime(algo->second, a, size);
 
                 // Write sorted array to txt file
                 WriteArrayToTxtFile(a, size, outFileName.c_str());
@@ -200,8 +200,8 @@ int main(int argc, const char *argv[])
                 // Print result
                 PrintResult(argv[5], runningTime, countCompare);
 
-                // // Write experimental results to .csv file
-                // WriteExperimentalResultToCsvFile(algoName, orderIdx, size, runningTime, countCompare);
+                // Write experimental results to .csv file
+                WriteExperimentalResultToCsvFile(algoName, orderIdx, size, runningTime, countCompare);
 
                 std::cout << "\n\n";
 
@@ -251,8 +251,8 @@ int main(int argc, const char *argv[])
                     std::cout << "-------------------------\n";
 
                     // Measure running time
-                    int runningTime1 = MeasureRunningTime(algo1->second, a, size);
-                    int runningTime2 = MeasureRunningTime(algo2->second, a, size);
+                    ull runningTime1 = MeasureRunningTime(algo1->second, a, size);
+                    ull runningTime2 = MeasureRunningTime(algo2->second, a, size);
 
                     // Count comparison
                     ull countCompare1 = 0;
@@ -311,8 +311,8 @@ int main(int argc, const char *argv[])
                     std::cout << "-------------------------\n";
 
                     // Measure running time
-                    int runningTime1 = MeasureRunningTime(algo1->second, a, size);
-                    int runningTime2 = MeasureRunningTime(algo2->second, a, size);
+                    ull runningTime1 = MeasureRunningTime(algo1->second, a, size);
+                    ull runningTime2 = MeasureRunningTime(algo2->second, a, size);
 
                     // Count comparison
                     ull countCompare1 = 0;

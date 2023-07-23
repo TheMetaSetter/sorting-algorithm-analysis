@@ -1,0 +1,75 @@
+cmake -B build
+
+cd ./build
+
+./SortingAlgorithms -a bubble-sort 10000 -nsorted -both
+./SortingAlgorithms -a counting-sort 10000 -nsorted -both
+./SortingAlgorithms -a flash-sort 10000 -nsorted -both
+./SortingAlgorithms -a heap-sort 10000 -nsorted -both
+./SortingAlgorithms -a insertion-sort 10000 -nsorted -both
+./SortingAlgorithms -a merge-sort 10000 -nsorted -both
+./SortingAlgorithms -a quick-sort 10000 -nsorted -both
+./SortingAlgorithms -a radix-sort 10000 -nsorted -both
+./SortingAlgorithms -a selection-sort 10000 -nsorted -both
+./SortingAlgorithms -a shaker-sort 10000 -nsorted -both
+./SortingAlgorithms -a shell-sort 10000 -nsorted -both
+
+./SortingAlgorithms -a bubble-sort 30000 -nsorted -both
+./SortingAlgorithms -a counting-sort 30000 -nsorted -both
+./SortingAlgorithms -a flash-sort 30000 -nsorted -both
+./SortingAlgorithms -a heap-sort 30000 -nsorted -both
+./SortingAlgorithms -a insertion-sort 30000 -nsorted -both
+./SortingAlgorithms -a merge-sort 30000 -nsorted -both
+./SortingAlgorithms -a quick-sort 30000 -nsorted -both
+./SortingAlgorithms -a radix-sort 30000 -nsorted -both
+./SortingAlgorithms -a selection-sort 30000 -nsorted -both
+./SortingAlgorithms -a shaker-sort 30000 -nsorted -both
+./SortingAlgorithms -a shell-sort 30000 -nsorted -both
+
+./SortingAlgorithms -a bubble-sort 50000 -nsorted -both
+./SortingAlgorithms -a counting-sort 50000 -nsorted -both
+./SortingAlgorithms -a flash-sort 50000 -nsorted -both
+./SortingAlgorithms -a heap-sort 50000 -nsorted -both
+./SortingAlgorithms -a insertion-sort 50000 -nsorted -both
+./SortingAlgorithms -a merge-sort 50000 -nsorted -both
+./SortingAlgorithms -a quick-sort 50000 -nsorted -both
+./SortingAlgorithms -a radix-sort 50000 -nsorted -both
+./SortingAlgorithms -a selection-sort 50000 -nsorted -both
+./SortingAlgorithms -a shaker-sort 50000 -nsorted -both
+./SortingAlgorithms -a shell-sort 50000 -nsorted -both
+
+./SortingAlgorithms -a bubble-sort 100000 -nsorted -both
+./SortingAlgorithms -a counting-sort 100000 -nsorted -both
+./SortingAlgorithms -a flash-sort 100000 -nsorted -both
+./SortingAlgorithms -a heap-sort 100000 -nsorted -both
+./SortingAlgorithms -a insertion-sort 100000 -nsorted -both
+./SortingAlgorithms -a merge-sort 100000 -nsorted -both
+./SortingAlgorithms -a quick-sort 100000 -nsorted -both
+./SortingAlgorithms -a radix-sort 100000 -nsorted -both
+./SortingAlgorithms -a selection-sort 100000 -nsorted -both
+./SortingAlgorithms -a shaker-sort 100000 -nsorted -both
+./SortingAlgorithms -a shell-sort 100000 -nsorted -both
+
+./SortingAlgorithms -a bubble-sort 300000 -nsorted -both
+./SortingAlgorithms -a counting-sort 300000 -nsorted -both
+./SortingAlgorithms -a flash-sort 300000 -nsorted -both
+./SortingAlgorithms -a heap-sort 300000 -nsorted -both
+./SortingAlgorithms -a insertion-sort 300000 -nsorted -both
+./SortingAlgorithms -a merge-sort 300000 -nsorted -both
+./SortingAlgorithms -a quick-sort 300000 -nsorted -both
+./SortingAlgorithms -a radix-sort 300000 -nsorted -both
+./SortingAlgorithms -a selection-sort 300000 -nsorted -both
+./SortingAlgorithms -a shaker-sort 300000 -nsorted -both
+./SortingAlgorithms -a shell-sort 300000 -nsorted -both
+
+./SortingAlgorithms -a bubble-sort 500000 -nsorted -both
+./SortingAlgorithms -a counting-sort 500000 -nsorted -both
+./SortingAlgorithms -a flash-sort 500000 -nsorted -both
+./SortingAlgorithms -a heap-sort 500000 -nsorted -both
+./SortingAlgorithms -a insertion-sort 500000 -nsorted -both
+./SortingAlgorithms -a merge-sort 500000 -nsorted -both
+./SortingAlgorithms -a quick-sort 500000 -nsorted -both
+./SortingAlgorithms -a radix-sort 500000 -nsorted -both
+./SortingAlgorithms -a selection-sort 500000 -nsorted -both
+./SortingAlgorithms -a shaker-sort 500000 -nsorted -both
+./SortingAlgorithms -a shell-sort 500000 -nsorted -both
