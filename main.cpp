@@ -200,8 +200,8 @@ int main(int argc, const char *argv[])
                 // Print result
                 PrintResult(argv[5], runningTime, countCompare);
 
-                // Write experimental results to .csv file
-                WriteExperimentalResultToCsvFile(algoName, orderIdx, size, runningTime, countCompare);
+                // // Write experimental results to .csv file
+                // WriteExperimentalResultToCsvFile(algoName, orderIdx, size, runningTime, countCompare);
 
                 std::cout << "\n\n";
 
