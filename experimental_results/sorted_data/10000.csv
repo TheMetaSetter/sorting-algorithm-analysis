@@ -1,0 +1,12 @@
+
+bubble-sort,301673,199980001
+counting-sort,246,70003
+flash-sort,558,86994
+heap-sort,2615,425873
+insertion-sort,63,29998
+merge-sort,10513,475242
+quick-sort,356,193610
+radix-sort,651,130058
+selection-sort,108127,100009999
+shaker-sort,29,20001
+shell-sort,732,360042
