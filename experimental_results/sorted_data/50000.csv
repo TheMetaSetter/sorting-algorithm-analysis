@@ -1,4 +1,4 @@
-
+algorithm name,running time, comparison count
 bubble-sort,7174417,4999900001
 counting-sort,1143,350003
 flash-sort,2174,434994
